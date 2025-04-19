@@ -28,12 +28,10 @@ public class task_e {
     public static String result(int k1, int m, int k2, int p2, int n2) {
         int ent = -1;
         int floor = -1;
-        boolean goodFlag = false;
         for (int flatsOnFloor = 1; flatsOnFloor < Math.pow(10, 6) + 1; flatsOnFloor++) {
             int nent = check(k1, m, k2, p2, n2, flatsOnFloor)[0];
             int nfloor = check(k1, m, k2, p2, n2, flatsOnFloor)[1];
             if (nent != -1) {
-                goodFlag = true;
                 if (ent == -1) {
                     ent = nent;
                     floor = nfloor;
@@ -45,13 +43,8 @@ public class task_e {
             }
         }
         int[] result = new int[2];
-        if (goodFlag) {
-            result[0] = ent;
-            result[1] = floor;
-        } else {
-            result[0] = -1;
-            result[1] = -1;
-        }
+        result[0] = ent;
+        result[1] = floor;
         return String.valueOf(result[0]) + " " + String.valueOf(result[1]);
     }
 }
